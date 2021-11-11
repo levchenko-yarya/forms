@@ -1,3 +1,26 @@
-<h1>форма Angular</h1>
+<form [formGroup]="formData" novalidate (ngSubmit)="save()"
+      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdXaqpqjTgv2xElS1f6HzSJAP693UKIhdRLR1HRZi_s8kPMvg/formResponse"
+      submit="return window.submitGoogleForm(this);">
 
-<form-app></form-app>
+    <div class="mb-3">
+        <label>Имя</label>
+        <input class="form-control" formControlName="firstname">
+    </div>
+
+    <div class="mb-3">
+        <label>Фамилия</label>
+        <input class="form-control" formControlName="lastname">
+    </div>
+
+    <div class="mb-3">
+        <label>Возраст</label>
+        <input class="form-control" formControlName="age">
+    </div>
+
+    <div class="mb-3">
+        <label>Университет</label>
+        <input class="form-control" formControlName="university">
+    </div>
+    <script src="google-form.js"></script>
+    <input type="submit" class="btn btn-primary" value="Отправить"/>
+</form>
