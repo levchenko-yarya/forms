@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build"
+    "build": "ng build",
+    "deploy": "npx angular-cli-ghpages --dir=dist/forms"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/levchenko-yarya/forms/issues"
   },
-  "homepage": "https://github.com/levchenko-yarya/forms#readme",
+  "homepage": "https://levchenko-yarya.github.io/forms",
   "dependencies": {
     "@angular/common": "~13.0.0",
     "@angular/compiler": "~13.0.0",
@@ -34,6 +35,7 @@
     "@angular/cli": "~13.0.0",
     "@angular/compiler-cli": "~13.0.0",
     "@types/node": "~16.11.0",
+    "gh-pages": "^3.2.3",
     "typescript": "~4.4.4"
   }
 }
