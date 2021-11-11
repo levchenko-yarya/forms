@@ -10,7 +10,6 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 export class AppComponent {
     name = 'Angular'
     url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdXaqpqjTgv2xElS1f6HzSJAP693UKIhdRLR1HRZi_s8kPMvg/formResponse'
-    // url = 'https://docs.google.com/forms/d/e/1FAIpQLSdXaqpqjTgv2xElS1f6HzSJAP693UKIhdRLR1HRZi_s8kPMvg/formResponse'
 
     fieldMapping = {
         firstname: 'entry.1284856457',
@@ -20,30 +19,26 @@ export class AppComponent {
     }
 
     formData = this.fb.group({
-        firstname: '',
-        lastname: '',
+        firstname: ['', Validators.required],
+        lastname: ['', Validators.required],
         age: '',
-        university: ''
+        university: ['', Validators.required],
     })
 
     save() {
         if (this.formData.valid) {
             const rawValue = this.formData.getRawValue()
-            console.log(rawValue)
             let body = new HttpParams()
             Object.entries(rawValue).forEach(([key, value]) => {
                 // @ts-ignore
                 body = body.append(this.fieldMapping[key], value)
             })
-            console.log(body)
-
             const httpOptions = {
                 headers: new HttpHeaders({
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Access-Control-Allow-Origin': 'http://localhost:4200'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 })
             }
-            this.http.post(this.url, rawValue, httpOptions).subscribe(() => {
+            this.http.post(this.url, body, httpOptions).subscribe(() => {
             }, (err) => {
                 console.log(err)
             })
