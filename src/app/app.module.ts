@@ -1,11 +1,15 @@
 import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {FormsModule} from "@angular/forms"
+import {FormioModule} from "angular-formio"
 import {AppComponent} from './app.component'
-import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        FormioModule
+    ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
