@@ -1,11 +1,19 @@
 import {Component} from '@angular/core'
 
 @Component({
-    'selector': 'my-app',
-    'templateUrl': 'app.component.html'
+    'selector': 'app-root',
+    'template': `
+        <div>
+            <div>
+                <button><a href="/">главная</a></button>
+                <button><a href="/url-form">ссылка на форму</a></button>
+                <button><a href="/builder-form">builder формы</a></button>
+            </div>
+            <h3>маршрутизация</h3>
+            <router-outlet></router-outlet>
+        </div>
+    `
 })
 
 export class AppComponent {
-    name = 'form.io'
-    url = 'https://exkqicypuqmpgct.form.io/formangular'
 }
