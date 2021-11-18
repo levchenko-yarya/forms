@@ -23,4 +23,5 @@ export class BuilderComponent {
         this.jsonElement.nativeElement.innerHTML = ''
         this.jsonElement.nativeElement.appendChild(document.createTextNode(JSON.stringify(event.form, null, 4)))
     }
+
 }

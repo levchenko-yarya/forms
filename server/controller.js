@@ -1,8 +1,9 @@
 const Form = require('./form')
 
 exports.get = (req, res) => {
-    let forms = Form.find({})
-    return forms
+    // let forms = Form.find({})
+    // return forms
+    res.send('form get')
 }
 exports.post = (req, res) => {
     let form = new Form({

@@ -16,9 +16,9 @@ import {HttpClientModule} from "@angular/common/http"
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'form', component: FormComponent},
     {path: 'url-form', component: UrlFormComponent},
-    {path: 'builder-form', component: BuilderComponent}
+    {path: 'builder-form', component: BuilderComponent},
+    {path: 'save-form', component: FormComponent}
 ]
 
 @NgModule({

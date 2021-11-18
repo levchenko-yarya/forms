@@ -5,8 +5,9 @@ import {FormService} from "../form.service"
     'selector': 'url-form',
     'template': `
         <div>
-            <!--<formio src='https://exkqicypuqmpgct.form.io/formangular'></formio>
-            <formio [form]='{
+            <!--<p>url: https://exkqicypuqmpgct.form.io/formangular</p>
+            <formio src='https://exkqicypuqmpgct.form.io/formangular'></formio>-->
+            <!-- <formio [form]='{
             components: [
                 {
             "label": "name",
@@ -25,33 +26,33 @@ import {FormService} from "../form.service"
             }
             ]
             }'></formio>-->
-
-            <form (submit)="formAddClick()">
+            <!--<form (submit)="formAddClick()"
+                  action="http://localhost:3000/form">
                 <input type="text" [(ngModel)]="name" placeholder="введите название формы" class="form-control">
                 <input type="text" [(ngModel)]="components" placeholder="введите компоненты" class="form-control">
-                <input type="submit">
+                <input type="submit" value="добавить форму">
+            </form>-->
+
+            <form (submit)="formAddClick()"
+                  action="http://localhost:3000/form">
+                <input type="text" [(ngModel)]="name" placeholder="введите название формы" class="form-control">
+                <input type="text" [(ngModel)]="components" placeholder="введите компоненты" class="form-control">
+                <input type="submit" value="добавить форму">
             </form>
         </div>
     `
 })
 export class UrlFormComponent {
-    url = 'https://exkqicypuqmpgct.form.io/formangular'
     name: String
     components: String
 
-    constructor(
-        private formService: FormService
-    ) {
-    }
+    constructor(private formService: FormService) {}
 
     formAddClick() {
         const form = {
             name: this.name,
             components: this.components
         }
-
-        this.formService.addForm(form)
+        //this.formService.addForm(form)
     }
-
-
 }
