@@ -1,4 +1,4 @@
 export class Form {
     name: string
-    components: string
+    component: object
 }

@@ -17,29 +17,4 @@ export class FormService {
         return this.http.post(`${this.url}`, form)
     }
 
-    /*postData(form) {
-        return this.http.post<Form>(this.url, form)
-    }*/
-
-    /*createForm(form: string): Observable<Form> {
-
-        return this.http.post<Form>(this.url, form).pipe(
-            map((obj)=> obj)
-        )
-    }*/
-
-    /*constructor(private http: HttpClient) {
-    }
-
-    addForm(form) {
-        let headers = new HttpHeaders()
-        headers.append('Content-Type', 'application/json')
-
-        return this.http.post(
-            'http://localhost:3000/form',
-            form,
-            {headers: headers}
-        )  // @ts-ignore  .map(res => res.json())
-    }*/
-
 }
