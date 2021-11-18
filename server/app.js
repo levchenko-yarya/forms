@@ -15,8 +15,13 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.post('/post-form', jsonParser, function (req, res) {
-    if(!req.body) return res.sendStatus(400)
+app.get('/form', jsonParser, async function (req, res) {
+    const forms = await Form.find({})
+    return res.send(forms)
+})
+
+app.post('/form', jsonParser, function (req, res) {
+    if (!req.body) return res.sendStatus(400)
 
     let form = new Form({
         name: req.body.name,

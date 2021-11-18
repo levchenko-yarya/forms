@@ -1,15 +1,10 @@
 <h1>Сохранённые формы</h1>
-<form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label>Имя</label>
-        <input class="form-control" name="name" [(ngModel)]="form.name"/>
+
+<div *ngFor="let forma of forms | async">
+    <div style="border: 1px solid red">
+        <h3>{{forma.name}}</h3>
+        <formio [form]="{
+            components: forma.components
+        }"></formio>
     </div>
-    <div class="form-group">
-        <label>Возраст</label>
-        <input class="form-control" name="component" [(ngModel)]="form.component"/>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary">Добавить форму</button>
-    </div>
-    {{this.form.component}}
-</form>
+</div>

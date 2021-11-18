@@ -8,7 +8,7 @@ import {Observable} from "rxjs"
 
 export class FormService {
 
-    private url = 'http://localhost:3000/post-form';
+    private url = 'http://localhost:3000/form';
 
     constructor(private http: HttpClient) {
     }
@@ -17,4 +17,7 @@ export class FormService {
         return this.http.post(`${this.url}`, form)
     }
 
+    getForms(): Observable<any> {
+        return this.http.get(`${this.url}`)
+    }
 }

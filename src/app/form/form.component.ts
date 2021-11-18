@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core"
 import {FormService} from "./form.service"
 import {Form} from './form'
+import {Observable} from "rxjs";
 
 @Component({
     'selector': 'form-app',
@@ -10,26 +11,16 @@ import {Form} from './form'
 
 export class FormComponent implements OnInit {
 
-    form: Form = new Form()
+    forms:Observable<Form[]>
 
     constructor(private formService: FormService) {
     }
 
     ngOnInit() {
+        this.reloadData()
     }
 
-    save() {
-        this.formService
-            .createForm(this.form)
-            .subscribe(data => {
-                console.log(data)
-                this.form = new Form()
-            }),
-            error=> console.log(error)
-    }
-
-    onSubmit() {
-        this.save()
-        // сделать redirect
+    reloadData(){
+        this.forms = this.formService.getForms()
     }
 }
