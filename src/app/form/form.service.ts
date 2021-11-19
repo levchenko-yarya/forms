@@ -17,8 +17,20 @@ export class FormService {
         return this.http.get(`${this.url}/forms`)
     }
 
+    getForm(id: number): Observable<any> {
+        return this.http.get(`${this.url}/form/${id}`)
+    }
+
     createForm(form: Object): Observable<Object> {
         return this.http.post(`${this.url}/form`, form)
+    }
+
+    updateForm(id: number, value: any): Observable<Object> {
+        return this.http.put(`${this.url}/form/${id}`, value)
+    }
+
+    deleteForm(id: number): Observable<Object> {
+        return this.http.delete(`${this.url}/form/${id}`)
     }
 
 }

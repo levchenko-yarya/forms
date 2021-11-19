@@ -33,7 +33,7 @@ exports.update = (req, res, next) => {
     )
 }
 
-exports.destroy = (req, res, next) => {
+exports.delete = (req, res, next) => {
     Form.findByIdAndDelete(req.params.id, (err, form) => {
         if (!form) return next(new Error('form not found'))
     })
