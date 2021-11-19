@@ -2,9 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const router = require('./router')
-const Form = require('./form')
 const app = express()
-const jsonParser = express.json()
 
 app.use(bodyParser.urlencoded({extended: false}))
 
@@ -15,25 +13,7 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.get('/form', jsonParser, async function (req, res) {
-    const forms = await Form.find({})
-    return res.send(forms)
-})
-
-app.post('/form', jsonParser, function (req, res) {
-    if (!req.body) return res.sendStatus(400)
-
-    let form = new Form({
-        name: req.body.name,
-        components: req.body.components
-    })
-    form.save()
-    console.log('save is done')
-    res.json('save is done')
-})
-
-
-// app.use('/', router)
+app.use('/', router)
 
 mongoose.connect('mongodb://localhost:27017/form-db', {
     useUnifiedTopology: true,
