@@ -1,4 +1,4 @@
-const Form = require('./form')
+const Form = require('./model')
 
 exports.show = async (req, res) => {
     const forms = await Form.find({})
@@ -16,7 +16,8 @@ exports.post = (req, res) => {
     let form = new Form({
         fullname: req.body.fullname,
         age: req.body.age,
-        university: req.body.university
+        university: req.body.university,
+        data: req.body.data
     })
     form.save()
 }

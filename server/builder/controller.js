@@ -1,4 +1,4 @@
-const Builder = require('./builder')
+const Builder = require('./model')
 
 exports.show = async (req, res) => {
     const builders = await Builder.find({})

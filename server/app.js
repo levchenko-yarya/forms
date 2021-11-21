@@ -1,7 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const router = require('./router')
+const formRouter = require('./form/router')
+const builderRouter = require('./builder/router')
 const app = express()
 const jsonParser = express.json()
 
@@ -14,7 +15,11 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.use('/', jsonParser, router)
+app.use('/form', jsonParser, formRouter)
+app.use('/builder', jsonParser, builderRouter)
+app.get('/', (req, res) => {
+    res.send('заглушка')
+})
 
 mongoose.connect('mongodb://localhost:27017/form-db', {
     useUnifiedTopology: true,
