@@ -6,8 +6,9 @@ import {Routes, RouterModule} from "@angular/router"
 import {AppComponent} from './app.component'
 import {HomeComponent} from './form/home.component'
 import {FormComponent} from "./form/form.component"
-import {BuilderComponent} from "./form/builder/builder.component";
-import {UrlFormComponent} from "./form/url/url-form.component";
+import {BuilderComponent} from "./form/builder/builder.component"
+import {UrlFormComponent} from "./form/url/url-form.component"
+import {FormikComponent} from "./form/formik.component"
 import {FormsModule} from "@angular/forms"
 import {FormioModule} from "angular-formio"
 
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'url-form', component: UrlFormComponent},
     {path: 'builder-form', component: BuilderComponent},
-    {path: 'save-form', component: FormComponent}
+    {path: 'save-form', component: FormComponent},
+    {path: 'post-form', component: FormikComponent}
 ]
 
 @NgModule({
@@ -33,6 +35,7 @@ const appRoutes: Routes = [
         AppComponent,
         HomeComponent,
         FormComponent,
+        FormikComponent,
         BuilderComponent,
         UrlFormComponent
     ],

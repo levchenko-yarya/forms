@@ -14,7 +14,9 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
     if (!req.body) return res.sendStatus(400)
     let form = new Form({
-        name: req.body.name,
+        fullname: req.body.fullname,
+        age: req.body.age,
+        university: req.body.university,
         components: req.body.components
     })
     form.save()
@@ -24,7 +26,9 @@ exports.update = (req, res, next) => {
     if (!req.params.id) return next(new Error('no form id'))
     Form.findByIdAndUpdate(req.params.id,
         {
-            name: req.body.name,
+            fullname: req.body.fullname,
+            age: req.body.age,
+            university: req.body.university,
             components: req.body.components
         },
         (err, form) => {

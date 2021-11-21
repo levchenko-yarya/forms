@@ -2,7 +2,7 @@
 <div>
     <form-builder [form]="form" (change)="onChange($event)"></form-builder>
     <form (ngSubmit)="onSubmit()">
-        <input class="form-control" name="name" [(ngModel)]="form.name"/>
+        <input class="form-control" name="name" [(ngModel)]="form.fullname"/>
         <input type="hidden" name="compon" [(ngModel)]="form.component">
         <button>Сохранить форму</button>
     </form>

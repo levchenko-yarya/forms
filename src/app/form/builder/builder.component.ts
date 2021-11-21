@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef, ViewChild} from "@angular/core"
-import {Form} from "../form";
-import {FormService} from "../form.service";
+import {Form} from "../form"
+import {FormService} from "../form.service"
 
 @Component({
     'selector': 'builder-form',

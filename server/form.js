@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 const formSchema = new Schema({
-    name: String,
+    fullname: String,
+    age: Number,
+    university: String,
     components: Object
 })
 

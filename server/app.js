@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const router = require('./router')
 const app = express()
+const jsonParser = express.json()
 
 app.use(bodyParser.urlencoded({extended: false}))
 
@@ -13,7 +14,7 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.use('/', router)
+app.use('/', jsonParser, router)
 
 mongoose.connect('mongodb://localhost:27017/form-db', {
     useUnifiedTopology: true,

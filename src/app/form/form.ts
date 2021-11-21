@@ -1,4 +1,6 @@
 export class Form {
-    name: string
+    fullname: string
+    age: number
+    university: string
     component: object
 }
