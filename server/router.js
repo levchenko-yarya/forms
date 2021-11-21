@@ -1,12 +1,18 @@
 const express = require('express')
-const controller = require('./controller')
+const formController = require('./formController')
+const builderController = require('./builderController')
 const router = express.Router()
 
-router.get('/forms', controller.show)
-router.get('/form/:id', controller.get)
-router.post('/form', controller.post)
-router.put('/form/:id', controller.update)
-router.delete('/form/:id', controller.delete)
+router.get('/forms', formController.show)
+router.get('/form/:id', formController.get)
+router.post('/form', formController.post)
+router.put('/form/:id', formController.update)
+router.delete('/form/:id', formController.delete)
+
+router.get('/builders', builderController.show)
+router.get('/builder/:id', builderController.get)
+router.post('/builder', builderController.post)
+
 router.get('/', (req, res) => {
     res.send('заглушка')
 })

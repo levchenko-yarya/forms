@@ -1,5 +1,5 @@
 import {Component, OnInit, ElementRef, ViewChild} from "@angular/core"
-import {Form} from "../form"
+import {Builder} from "./builder"
 import {FormService} from "../form.service"
 
 @Component({
@@ -9,7 +9,7 @@ import {FormService} from "../form.service"
 
 export class BuilderComponent implements OnInit {
 
-    form: Form = new Form()
+    builder: Builder = new Builder()
 
     constructor(private formService: FormService) {
     }
@@ -27,12 +27,12 @@ export class BuilderComponent implements OnInit {
     }
 
     save() {
-        console.log(this.form)
+        console.log(this.builder)
         this.formService
-            .createForm(this.form)
+            .createBuilder(this.builder)
             .subscribe(data => {
                 console.log(data)
-                this.form = new Form()
+                this.builder = new Builder()
             }),
             error => console.log(error)
     }

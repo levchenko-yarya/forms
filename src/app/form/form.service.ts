@@ -33,4 +33,12 @@ export class FormService {
         return this.http.delete(`${this.url}/form/${id}`)
     }
 
+    getBuilders(): Observable<any> {
+        return this.http.get(`${this.url}/builders`)
+    }
+
+    createBuilder(builder: Object): Observable<Object> {
+        return this.http.post(`${this.url}/builder`, builder)
+    }
+
 }

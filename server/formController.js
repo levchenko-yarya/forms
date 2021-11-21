@@ -16,8 +16,7 @@ exports.post = (req, res) => {
     let form = new Form({
         fullname: req.body.fullname,
         age: req.body.age,
-        university: req.body.university,
-        components: req.body.components
+        university: req.body.university
     })
     form.save()
 }

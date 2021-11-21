@@ -4,8 +4,7 @@ const Schema = mongoose.Schema
 const formSchema = new Schema({
     fullname: String,
     age: Number,
-    university: String,
-    components: Object
+    university: String
 })
 
 module.exports = mongoose.model('Form', formSchema)
