@@ -1,12 +1,7 @@
 <h1>Сохранённые формы</h1>
 
-<div *ngFor="let form of forms | async">
+<div *ngFor="let builder of builders | async">
     <div style="border: 1px solid red">
-        <h3>{{form.fullname}}</h3>
-        <p>{{form.age}}</p>
-        <p>{{form.university}}</p>
-        <formio [form]="{
-            components: form.components
-        }"></formio>
+        <h3><button (click)="builderDetails(builder.id)">{{builder.name}}</button></h3>
     </div>
 </div>

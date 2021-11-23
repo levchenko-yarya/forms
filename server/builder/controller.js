@@ -14,6 +14,7 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
     if (!req.body) return res.sendStatus(400)
     let builder = new Builder({
+        name: req.body.name,
         components: req.body.components
     })
     builder.save()

@@ -2,12 +2,15 @@
 
 <form (ngSubmit)="onSubmit()">
     <input type="hidden" name="component" [(ngModel)]="builder.components">
-    <button>Сохранить форму</button>
+    <div class="form-group form-control">
+        <input type="text" [(ngModel)]="builder.name" placeholder="название формы">
+        <button class="btn btn-primary">Сохранить форму</button>
+    </div>
+
 </form>
 
 <div>
     <form-builder [form]="builder" (change)="onChange($event)"></form-builder>
-
     <div class="well jsonviewer">
         <pre id="json"><code class="language-json" #json></code></pre>
     </div>

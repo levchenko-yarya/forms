@@ -10,7 +10,7 @@ import {BuilderComponent} from "./form/builder/builder.component"
 import {UrlFormComponent} from "./form/url/url-form.component"
 import {FormikComponent} from "./form/formik.component"
 import {FormsModule} from "@angular/forms"
-import {FormioModule} from "angular-formio"
+import {FormioModule} from "@formio/angular"
 
 import {FormService} from "./form/form.service"
 import {HttpClientModule} from "@angular/common/http"
@@ -20,7 +20,7 @@ const appRoutes: Routes = [
     {path: 'url-form', component: UrlFormComponent},
     {path: 'builder-form', component: BuilderComponent},
     {path: 'save-form', component: FormComponent},
-    {path: 'post-form', component: FormikComponent}
+    {path: 'form/:id', component: FormikComponent}
 ]
 
 @NgModule({

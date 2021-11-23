@@ -4,6 +4,7 @@ import {BuilderService} from "./builder/builder.service";
 import {Form} from './form'
 import {Builder} from "./builder/builder";
 import {Observable} from "rxjs";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     'selector': 'formik-app',
@@ -12,15 +13,18 @@ import {Observable} from "rxjs";
 
 export class FormikComponent implements OnInit {
 
+    id: any
     form: Form = new Form()
     builders: Observable<Builder[]>
-    private elements: any;
 
     constructor(private builderService: BuilderService,
-                private formService: FormService) {
+                private formService: FormService,
+                private route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.id = this.route.snapshot.params['id']
+        this.builderService.getBuilder(this.id)
         this.reloadData()
     }
 
@@ -29,10 +33,6 @@ export class FormikComponent implements OnInit {
     }
 
     save() {
-        //let input = document.querySelector('input')
-        //console.log(input.value)
-        // console.log(this.form)
-        // console.log(this.form.data)
         this.formService
             .createForm(this.form)
             .subscribe(data => {
@@ -43,13 +43,6 @@ export class FormikComponent implements OnInit {
     }
 
     onSubmit() {
-        let input = document.querySelectorAll('input')
-        // @ts-ignore
-        for(let el of input) {
-            console.log(el.value)
-        }
-        
-
         this.save()
         // сделать redirect
     }

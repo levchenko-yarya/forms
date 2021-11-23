@@ -1,26 +1,31 @@
 import {Component, OnInit} from "@angular/core"
-import {FormService} from "./form.service"
-import {Form} from './form'
+import {BuilderService} from "./builder/builder.service"
 import {Observable} from "rxjs";
+import {Builder} from "./builder/builder";
+import {Router} from "@angular/router";
 
 @Component({
     'selector': 'form-app',
-    'providers': [FormService],
+    'providers': [BuilderService],
     'templateUrl': './form.component.html'
 })
 
 export class FormComponent implements OnInit {
 
-    forms:Observable<Form[]>
+    builders: Observable<Builder[]>
 
-    constructor(private formService: FormService) {
+    constructor(private builderService: BuilderService, private router: Router) {
+    }
+
+    builderDetails(id: any) {
+        this.router.navigate(['form', id])
     }
 
     ngOnInit() {
         this.reloadData()
     }
 
-    reloadData(){
-        this.forms = this.formService.getForms()
+    reloadData() {
+        this.builders = this.builderService.getBuilders()
     }
 }

@@ -9,8 +9,9 @@ import {request} from "http";
         <div>
             <!--<p>url: https://exkqicypuqmpgct.form.io/formangular</p>
             <formio src='https://exkqicypuqmpgct.form.io/formangular'></formio>-->
-            <formio (ngSubmit)="anSubmit()" [form]='{
-            "submit": "anSubmit()",
+            <formio (ngSubmit)="anSubmit()" [(ngModel)]="form.data" [form]='{
+                "submit": "anSubmit()",
+                "ngModel": "form.data",
                 "title": "Test form",
                 "components": [
                     {
@@ -92,8 +93,6 @@ import {request} from "http";
     `
 })
 export class UrlFormComponent {
-    //name: String
-    //components: String
 
     form: Form = new Form()
 
@@ -112,12 +111,12 @@ export class UrlFormComponent {
     }
 
     anSubmit() {
-        let elements = document.querySelectorAll('input')
+        /*let elements = document.querySelectorAll('input')
         // @ts-ignore
         for (let el of elements) {
             console.log(el.innerHTML)
-        }
-
+        }*/
+        this.save()
     }
 
     formAddClick() {

@@ -17,12 +17,12 @@
             </div>
         </div>
 
-        <div *ngFor="let builder of builders | async" style="border: 1px solid blue">
+        <!--<div *ngFor="let builder of builders | async" style="border: 1px solid blue">
             <formio [(ngModel)]="form.data" [form]="{
                 components: builder.components
             }"></formio>
-        </div>
-        <input type="hidden" name="data" [(ngModel)]="form.data">
+        </div>-->
+        <!--<input type="hidden" name="data" [(ngModel)]="form.data">-->
 
         <div class="form-group">
             <input type="submit" class="btn btn-primary">
