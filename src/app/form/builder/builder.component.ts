@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef, ViewChild} from "@angular/core"
 import {Builder} from "./builder"
-import {FormService} from "../form.service"
+import {BuilderService} from "./builder.service"
 
 @Component({
     'selector': 'builder-form',
@@ -11,7 +11,7 @@ export class BuilderComponent implements OnInit {
 
     builder: Builder = new Builder()
 
-    constructor(private formService: FormService) {
+    constructor(private builderService: BuilderService) {
     }
 
     ngOnInit() {
@@ -28,7 +28,7 @@ export class BuilderComponent implements OnInit {
 
     save() {
         console.log(this.builder)
-        this.formService
+        this.builderService
             .createBuilder(this.builder)
             .subscribe(data => {
                 console.log(data)

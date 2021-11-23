@@ -1,6 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {FormService} from "./form.service";
+import {BuilderService} from "./builder/builder.service";
 import {Form} from './form'
+import {Builder} from "./builder/builder";
+import {Observable} from "rxjs";
 
 @Component({
     'selector': 'formik-app',
@@ -10,15 +13,26 @@ import {Form} from './form'
 export class FormikComponent implements OnInit {
 
     form: Form = new Form()
+    builders: Observable<Builder[]>
+    private elements: any;
 
-    constructor(private formService: FormService) {
+    constructor(private builderService: BuilderService,
+                private formService: FormService) {
     }
 
     ngOnInit() {
+        this.reloadData()
+    }
+
+    reloadData() {
+        this.builders = this.builderService.getBuilders()
     }
 
     save() {
-        console.log(this.form)
+        //let input = document.querySelector('input')
+        //console.log(input.value)
+        // console.log(this.form)
+        // console.log(this.form.data)
         this.formService
             .createForm(this.form)
             .subscribe(data => {
@@ -29,7 +43,15 @@ export class FormikComponent implements OnInit {
     }
 
     onSubmit() {
+        let input = document.querySelectorAll('input')
+        // @ts-ignore
+        for(let el of input) {
+            console.log(el.value)
+        }
+        
+
         this.save()
         // сделать redirect
     }
 }
+

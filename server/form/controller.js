@@ -14,10 +14,12 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
     if (!req.body) return res.sendStatus(400)
     let form = new Form({
-        fullname: req.body.fullname,
-        age: req.body.age,
-        university: req.body.university,
-        data: req.body.data
+        // fullname: req.body.fullname,
+        // age: req.body.age,
+        // university: req.body.university,
+        // data: req.body.data
+        firstName: req.body.data[firstName],
+        lastName: req.body.data[lastName]
     })
     form.save()
 }
