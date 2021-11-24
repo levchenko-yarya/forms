@@ -3,6 +3,7 @@ import {BuilderService} from "./builder/builder.service"
 import {Observable} from "rxjs";
 import {Builder} from "./builder/builder";
 import {Router} from "@angular/router";
+import {ObjectID} from 'mongodb'
 
 @Component({
     'selector': 'form-app',
@@ -17,7 +18,7 @@ export class FormComponent implements OnInit {
     constructor(private builderService: BuilderService, private router: Router) {
     }
 
-    builderDetails(id: any) {
+    builderDetails(id: string) {
         this.router.navigate(['form', id])
     }
 

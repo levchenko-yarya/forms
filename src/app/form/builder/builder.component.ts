@@ -1,6 +1,7 @@
 import {Component, OnInit, ElementRef, ViewChild} from "@angular/core"
 import {Builder} from "./builder"
 import {BuilderService} from "./builder.service"
+import {Router} from "@angular/router";
 
 @Component({
     'selector': 'builder-form',
@@ -11,16 +12,20 @@ export class BuilderComponent implements OnInit {
 
     builder: Builder = new Builder()
 
-    constructor(private builderService: BuilderService) {
+    constructor(private builderService: BuilderService,
+                private router: Router) {
     }
 
     ngOnInit() {
     }
 
-    @ViewChild('json') jsonElement?: ElementRef
-    public component: Object = {
+    @ViewChild('json')
+    jsonElement ?: ElementRef
+    public
+    component: Object = {
         components: []
     }
+
     onChange(event) {
         this.jsonElement.nativeElement.innerHTML = ''
         this.jsonElement.nativeElement.appendChild(document.createTextNode(JSON.stringify(event.component, null, 4)))
@@ -40,5 +45,6 @@ export class BuilderComponent implements OnInit {
     onSubmit() {
         this.save()
         // сделать redirect
+        this.router.navigate([''])
     }
 }

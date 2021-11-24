@@ -7,9 +7,9 @@ import {request} from "http";
     'selector': 'url-form',
     'template': `
         <div>
-            <!--<p>url: https://exkqicypuqmpgct.form.io/formangular</p>
-            <formio src='https://exkqicypuqmpgct.form.io/formangular'></formio>-->
-            <formio (ngSubmit)="anSubmit()" [(ngModel)]="form.data" [form]='{
+            <p>url: https://exkqicypuqmpgct.form.io/formangular</p>
+            <formio src='https://exkqicypuqmpgct.form.io/formangular'></formio>
+           <!-- <formio (ngSubmit)="anSubmit()" [(ngModel)]="form.data" [form]='{
                 "submit": "anSubmit()",
                 "ngModel": "form.data",
                 "title": "Test form",
@@ -88,7 +88,7 @@ import {request} from "http";
                     "theme": "primary",
                     "type": "button"
                 }]
-            }'></formio>
+            }'></formio>-->
         </div>
     `
 })
@@ -111,11 +111,6 @@ export class UrlFormComponent {
     }
 
     anSubmit() {
-        /*let elements = document.querySelectorAll('input')
-        // @ts-ignore
-        for (let el of elements) {
-            console.log(el.innerHTML)
-        }*/
         this.save()
     }
 
@@ -125,6 +120,5 @@ export class UrlFormComponent {
             lastname: document.getElementsByName('egfcv28-lastName')
         }
         console.log(form)
-        //this.formService.addForm(form)
     }
 }

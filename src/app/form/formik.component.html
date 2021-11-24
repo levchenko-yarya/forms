@@ -1,7 +1,6 @@
 <div>
     <form (ngSubmit)="onSubmit()">
         <div style="border: 1px solid red">
-            <p>{{builder.id}}</p>
             <div class="form-group">
                 <label>Полное имя</label>
                 <input type="text" class="form-control" name="fullname" [(ngModel)]="form.fullname">
@@ -18,13 +17,11 @@
             </div>
         </div>
 
-        <!--<div *ngFor="let builder of builders | async" style="border: 1px solid blue">-->
         <div style="border: 1px solid blue">
             <formio [form]="{
                 components: builder.components
             }"></formio>
         </div>
-        <!--<input type="hidden" name="data" [(ngModel)]="form.data">-->
 
         <div class="form-group">
             <input type="submit" class="btn btn-primary">

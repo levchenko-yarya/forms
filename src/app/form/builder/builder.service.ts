@@ -17,7 +17,7 @@ export class BuilderService {
         return this.http.get(`${this.url}/all`)
     }
 
-    getBuilder(id: number): Observable<any> {
+    getBuilder(id: any): Observable<any> {
         return this.http.get(`${this.url}/${id}`)
     }
 

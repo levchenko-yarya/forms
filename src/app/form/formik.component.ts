@@ -19,7 +19,8 @@ export class FormikComponent implements OnInit {
 
     constructor(private builderService: BuilderService,
                 private formService: FormService,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute,
+                private router: Router) {
     }
 
     ngOnInit() {
@@ -49,6 +50,7 @@ export class FormikComponent implements OnInit {
     onSubmit() {
         this.save()
         // сделать redirect
+        this.router.navigate([''])
     }
 }
 

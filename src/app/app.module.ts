@@ -16,10 +16,10 @@ import {FormService} from "./form/form.service"
 import {HttpClientModule} from "@angular/common/http"
 
 const appRoutes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', component: FormComponent},
     {path: 'url-form', component: UrlFormComponent},
     {path: 'builder-form', component: BuilderComponent},
-    {path: 'save-form', component: FormComponent},
+    {path: 'save-form', component: HomeComponent},
     {path: 'form/:id', component: FormikComponent}
 ]
 

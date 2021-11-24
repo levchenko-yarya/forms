@@ -29,6 +29,7 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@formio/angular": "^5.2.0",
+    "@types/mongodb": "^4.0.7",
     "angular-formio": "^4.11.5",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
