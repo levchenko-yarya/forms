@@ -1,17 +1,16 @@
 import {Component, OnInit} from "@angular/core";
-import {FormService} from "./form.service";
-import {BuilderService} from "./builder/builder.service";
-import {Form} from './form'
-import {Builder} from "./builder/builder";
-import {Observable} from "rxjs";
+import {FormService} from "../form.service";
+import {BuilderService} from "../../builder/builder.service";
+import {Form} from '../form'
+import {Builder} from "../../builder/builder";
 import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     'selector': 'formik-app',
-    'templateUrl': './formik.component.html'
+    'templateUrl': 'create.component.html'
 })
 
-export class FormikComponent implements OnInit {
+export class CreateComponent implements OnInit {
 
     id: any
     form: Form = new Form()

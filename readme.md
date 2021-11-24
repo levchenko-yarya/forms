@@ -1,13 +1,21 @@
 # Forms Angular (v.2)
 
-## Адрес приложения: https://levchenko-yarya.github.io/forms
+Проект написан для создания дополнительных полей к основной форме на сайте.
 
-### ссылка на анкету берётся из form.io
+В качестве библиотеки формы был взят `Form.io`
+
+В качестве сервера использовался `Node.js`
+
+В качестве базы данных была `MongoDB`
+
+### cборка проекта:
 
 `npm start` - запуск приложения на 4200 порту
 
 `npm run build` - сборка приложения в dist
 
+`npm run server` - запуск сервера на node.js
+
 `npx angular-cli-ghpages --dir=dist/forms` - публикация приложения на github.io
 
-![form.png](form.png)
+![img.png](builder-form.png)

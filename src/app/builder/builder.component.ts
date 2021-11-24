@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 
 @Component({
     'selector': 'builder-form',
-    'templateUrl': './builder.component.html'
+    'templateUrl': 'builder.component.html'
 })
 
 export class BuilderComponent implements OnInit {
