@@ -15,7 +15,7 @@ export class FormikComponent implements OnInit {
 
     id: any
     form: Form = new Form()
-    builders: Observable<Builder[]>
+    builder: Builder
 
     constructor(private builderService: BuilderService,
                 private formService: FormService,
@@ -23,13 +23,17 @@ export class FormikComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.builder = new Builder()
         this.id = this.route.snapshot.params['id']
         this.builderService.getBuilder(this.id)
-        this.reloadData()
+            .subscribe(data => {
+                console.log(data)
+                this.builder = data
+            }), error => console.log(error)
     }
 
     reloadData() {
-        this.builders = this.builderService.getBuilders()
+        this.builderService.getBuilder(this.id)
     }
 
     save() {
