@@ -19,3 +19,22 @@ exports.post = (req, res) => {
     })
     builder.save()
 }
+
+exports.update = (req, res) => {
+    if (!req.params.id) return next(new Error('no builder-form id'))
+    Builder.findByIdAndUpdate(req.params.id,
+        {
+            name: req.body.name,
+            components: req.body.components
+        },
+        (err, builder) => {
+            if (err) return next(err)
+        }
+    )
+}
+
+exports.delete = (req, res, next) => {
+    Builder.findByIdAndDelete(req.params.id, (err, builder) => {
+        if (!builder) return next(new Error('builder-form not found'))
+    })
+}
