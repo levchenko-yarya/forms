@@ -8,7 +8,7 @@
     "start": "ng serve --open",
     "build": "ng build",
     "deploy": "npx angular-cli-ghpages --dir=dist/forms",
-    "server": "nodemon server/app.js"
+    "server": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",

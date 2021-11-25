@@ -22,11 +22,13 @@ app.get('/', (req, res) => {
 })
 
 mongoose.connect('mongodb://localhost:27017/form-db', {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-}, (err) => {
-    if (err) return console.log(err)
-    app.listen(3000, () => {
-        console.log('server started...')
-    })
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, (error) => {
+    if (error) return console.log(error)
 })
+mongoose.connection.once('open', () => {
+    console.log("Connected to MongoDB")
+})
+
+module.exports = app
